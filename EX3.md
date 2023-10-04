@@ -98,7 +98,8 @@ select ENAME,JOB from EMP where  DEPTNO=10 AND JOB='SALESMAN';
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
 ### QUERY:
-```create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
+```
+create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
 ```
 
 ### OUTPUT:
