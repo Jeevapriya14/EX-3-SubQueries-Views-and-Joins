@@ -69,8 +69,8 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 
 ### QUERY:
-
-```CREATE VIEW details AS SELECT ENAME FROM EMP WHERE SAL >(select SAL from EMP where EMPNO=7566);
+```
+CREATE VIEW details AS SELECT ENAME FROM EMP WHERE SAL >(select SAL from EMP where EMPNO=7566);
 ```
 ### OUTPUT:
 ![Listing](https://github.com/Jeevapriya14/EX-3-SubQueries-Views-and-Joins/assets/121003043/33dd7af3-fc05-45a1-8a04-f7beec82079b)
@@ -78,7 +78,8 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
 ### QUERY:
- ```CREATE VIEW minimum AS select ENAME,JOB,SAL from EMP where SAL =(select MIN(SAL) from EMP);
+ ```
+CREATE VIEW minimum AS select ENAME,JOB,SAL from EMP where SAL =(select MIN(SAL) from EMP);
 ```
 
 ### OUTPUT:
@@ -108,7 +109,8 @@ create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
 ### QUERY:
-```create view empv30 AS select EMPNO,ENAME,SAL from EMP where DEPTNO=30;
+```
+create view empv30 AS select EMPNO,ENAME,SAL from EMP where DEPTNO=30;
 ```
 
 ### OUTPUT:
@@ -120,14 +122,13 @@ create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
 ### QUERY:
 ```
 update EMP set SAL=SAL*1.1 WHERE JOB='clerk';
-
 create view empv8 as select EMPNO,ENAME,SAL,JOB from EMP;
 ```
 ### OUTPUT:
 ![Updation of view](https://github.com/Jeevapriya14/EX-3-SubQueries-Views-and-Joins/assets/121003043/530cd4f3-d2c0-4f31-b4bd-2e3ab9f4f5da)
 
 ## Create a Customer1 Table
-```sql
+```
 CREATE TABLE Customer1 (customer_id INT,cust_name VARCHAR(20),city VARCHAR(20),grade INT,salesman_id INT);
 ```
 ## Inserting Values to the Table
@@ -142,7 +143,7 @@ INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(
 INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(3001, 'Brad Guzan', 'London', NULL, 5005);
 ```
 ## Create a Salesperson1 table
-```sql
+```
 CREATE TABLE Salesman1 (salesman_id INT,name VARCHAR(20),city VARCHAR(20),commission DECIMAL(4,2));
 ```
 ## Inserting Values to the Table
@@ -157,7 +158,8 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 ### QUERY:
-```SELECT salesman1.name AS "Salesman", customer1.cust_name AS "Customer Name", salesman1.city AS "City" from salesman1 INNER JOIN customer1 ON salesman1.city=customer1.city;
+```
+SELECT salesman1.name AS "Salesman", customer1.cust_name AS "Customer Name", salesman1.city AS "City" from salesman1 INNER JOIN customer1 ON salesman1.city=customer1.city;
 ```
 
 
@@ -168,7 +170,8 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 
 
 ### QUERY:
-```SELECT customer1.cust_name AS "Customer Name",customer1.city AS "Customer City",salesman1.name AS "Salesman",salesman1.commission AS "Commission" FROM salesman1 INNER JOIN customer1 ON salesman1.salesman_id=customer1.salesman_id WHERE salesman1.commission>0.13;
+```
+SELECT customer1.cust_name AS "Customer Name",customer1.city AS "Customer City",salesman1.name AS "Salesman",salesman1.commission AS "Commission" FROM salesman1 INNER JOIN customer1 ON salesman1.salesman_id=customer1.salesman_id WHERE salesman1.commission>0.13;
 ```
 
 ### OUTPUT:
@@ -187,14 +190,17 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 
 ### QUERY FOR LEFT JOIN:
 
-```SELECT customer1.cust_name AS "Customer Name",customer1.city AS "Customer City",salesman1.name AS "Salesman",salesman1.commissioSELECT customer1.cust_name AS "Customer Name",customer1.city AS "Customer City",salesman1.name AS "Salesman",salesman1.commission AS "Commission" FROM salesman1 INNER JOIN customer1 ON salesman1.salesman_id=customer1.salesman_id WHERE salesman1.commission>0.13;
 ```
-``` select * from customer1 natural join salesman1;
+SELECT customer1.cust_name AS "Customer Name",customer1.city AS "Customer City",salesman1.name AS "Salesman",salesman1.commissioSELECT customer1.cust_name AS "Customer Name",customer1.city AS "Customer City",salesman1.name AS "Salesman",salesman1.commission AS "Commission" FROM salesman1 INNER JOIN customer1 ON salesman1.salesman_id=customer1.salesman_id WHERE salesman1.commission>0.13;
+```
+```
+select * from customer1 natural join salesman1;
 ```
 ### OUTPUT FOR LEFT JOIN:
 ![LEFT JOIN](https://github.com/Jeevapriya14/EX-3-SubQueries-Views-and-Joins/assets/121003043/172580a3-5886-4abd-bea4-06a12024749a)
 ### QUERY FOR RIGHT JOIN:
- ```SELECT * FROM salesman1 RIGHT JOIN customer1 ON salesman1.salesman_id=customer1.salesman_id;
+```
+SELECT * FROM salesman1 RIGHT JOIN customer1 ON salesman1.salesman_id=customer1.salesman_id;
 ```
 ### OUTPUT FOR RIGHT JOIN:
 ![RIGHT JOIN](https://github.com/Jeevapriya14/EX-3-SubQueries-Views-and-Joins/assets/121003043/bb3089be-49fd-4c4d-b375-2198191c60af)
